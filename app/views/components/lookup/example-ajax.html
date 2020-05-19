@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="twelve columns">
+
+    <div class="field">
+      <label for="product-lookup" class="label required">Products</label>
+      <input id="product-lookup" data-init="false" data-validate="required" class="lookup" name="product-lookup"
+        type="text" />
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+  var columns = [];
+
+  //Define Columns for the Grid.
+  columns.push({ id: 'productId', hideable: false, name: 'Id', field: 'productId', formatter: Formatters.Text, width: 100 });
+  columns.push({ id: 'productName', name: 'Product Name', field: 'productName', formatter: Formatters.Hyperlink, width: 300, minWidth: 100 });
+  columns.push({ id: 'activity', name: 'Activity', field: 'activity' });
+  columns.push({ id: 'hidden', hidden: true, name: 'Hidden', field: 'hidden' });
+  columns.push({ id: 'price', align: 'right', name: 'Actual Price', field: 'price', formatter: Formatters.Decimal, numberFormat: { minimumFractionDigits: 0, maximumFractionDigits: 0, style: 'currency', currencySign: '$' } });
+  columns.push({ id: 'percent', align: 'right', name: 'Actual %', field: 'percent', formatter: Formatters.Decimal, numberFormat: { minimumFractionDigits: 0, maximumFractionDigits: 0, style: 'percent' } });
+  columns.push({ id: 'orderDate', name: 'Order Date', field: 'orderDate', formatter: Formatters.Date, dateFormat: 'M/d/yyyy' });
+  columns.push({ id: 'phone', name: 'Phone', field: 'phone', formatter: Formatters.Text });
+
+  //Init and get the api for the grid
+  $('#product-lookup').lookup({
+    field: 'productId',
+    autoApply: true,
+    autoFocus: false,
+    options: {
+      columns: columns,
+      source: function(req, response) {
+        $.getJSON('{{basepath}}api/datagrid-sample-data', function (data) {
+          setTimeout(function() {
+            response(data, req);
+          }, 2000)
+        });
+      },
+      paging: true,
+      selectable: 'single',
+      rowNavigation: true,
+      toolbar: {
+        results: true,
+        keywordFilter: true,
+        advancedFilter: false,
+        actions: false,
+        selectable: 'single',
+        filterable: true,
+        views: true,
+        rowHeight: false,
+        collapsibleFilter: false,
+        fullWidth: true
+      }
+    }
+  });
+
+
+</script>

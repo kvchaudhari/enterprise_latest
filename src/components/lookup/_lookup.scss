@@ -77,8 +77,11 @@
 
 .lookup-modal {
   .modal-content .modal-body-wrapper {
-    margin-bottom: 20px;
     overflow: hidden;
+
+    .datagrid-container {
+      margin-bottom: 20px;
+    }
   }
 
   &.lookup-no-search {

@@ -756,8 +756,6 @@ Datagrid.prototype = {
 
       // Set the remote dataset on the grid
       self.loadData(data, updatedPagingInfo);
-      console.log(data);
-      console.log(updatedPagingInfo);
 
       if (callback && typeof callback === 'function') {
         callback(true);
@@ -5685,10 +5683,7 @@ Datagrid.prototype = {
     let groupCountText = '';
     const isClientSide = self.settings.paging && !(self.settings.source);
     const formatInteger = v => Locale.formatNumber(v, { style: 'integer' });
-    console.group();
-    console.log(count);
-    console.log(self);
-    console.groupEnd();
+
     if (isClientSide || (!totals)) {
       this.recordCount = self.settings.dataset.length;
       count = self.settings.dataset.length;

@@ -73,6 +73,8 @@ MaskAPI.prototype = {
       throw new Error('No string provided');
     }
 
+    console.log(rawValue);
+
     let providedMask;
     let processResult = {
       originalValue: rawValue,

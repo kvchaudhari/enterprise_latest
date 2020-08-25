@@ -332,6 +332,9 @@ MaskInput.prototype = {
       finalValue += this.settings.patternOptions.suffix;
     }
 
+    console.log(processed);
+    console.log(finalValue);
+
     if (opts.patternOptions && opts.patternOptions.delimeter &&
       finalValue && finalValue !== rawValue) {
       rawValue = finalValue;

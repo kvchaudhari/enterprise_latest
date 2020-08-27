@@ -4,8 +4,9 @@
 
 ### v4.32.0 Features
 
+- `[Breadcrumb]` Add truncated style and made it the default for all Breadcrumb lists. ([#4091](https://github.com/infor-design/enterprise/issues/4091))
 - `[Datagrid]` Add a new `RowNumber` formatter that will show a row number column that remains the same no matter how the grid is sorted. ([#1904](https://github.com/infor-design/enterprise/issues/1904))
-- `[Datepicker]` Added the ability to use the range selection in date picker when using the UmAlQura Calendar (RTL). `TJM` ([#4227](https://github.com/infor-design/enterprise/issues/4227))
+- `[Datepicker]` Added the ability to use the range selection in date picker when using the UmAlQura Calendar (RTL). ([#4227](https://github.com/infor-design/enterprise/issues/4227))
 - `[Homepage]` Added ability to support a 5 column option. ([#4101](https://github.com/infor-design/enterprise/issues/4101))
 
 ### v4.32.0 Fixes
@@ -35,11 +36,18 @@
 - `[Tree]` Fixed an issue where the return focus state was not working properly after closing the context menu. ([#4252](https://github.com/infor-design/enterprise/issues/4252))
 - `[Vertical Tabs]` Fixed an issue where the error icon was misaligning. ([#873](https://github.com/infor-design/enterprise-ng/issues/873))
 
+## v4.31.2
+
+### v4.31.2 Fixes
+
+- `[Datagrid]` Added the ability to resize frozen columns, if you do not want this you must set columns to `resizable: false`. ([#3852](https://github.com/infor-design/enterprise/issues/3852))
+- `[Datagrid]` Fixed hideColumn method to check if the column is hidden. ([#3852](https://github.com/infor-design/enterprise/issues/3852))
+- `[Popdown]` Added a safety check to the destroy. ([#3852](https://github.com/infor-design/enterprise/issues/3852))
+
 ## v4.31.1
 
 ### v4.31.1 Fixes
 
-- `[Datagrid]` Added an option to frozen columns to allow the left side to be scrollable for trees. ([#3852](https://github.com/infor-design/enterprise/issues/3852))
 - `[Datagrid]` Fixed a bug with icon alignment in editors in small or xtra small layout. ([#4266](https://github.com/infor-design/enterprise/issues/4266))
 - `[Datagrid]` Fixed selection checkbox alignment. ([#4266](https://github.com/infor-design/enterprise/issues/4266))
 

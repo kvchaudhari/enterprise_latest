@@ -73,8 +73,6 @@ MaskAPI.prototype = {
       throw new Error('No string provided');
     }
 
-    console.log(rawValue);
-
     let providedMask;
     let processResult = {
       originalValue: rawValue,
@@ -386,11 +384,12 @@ MaskAPI.prototype = {
           indexOfLastFilledPlaceholderChar = m;
         }
       }
-
+      console.log(indexOfLastFilledPlaceholderChar);
       if (indexOfLastFilledPlaceholderChar !== null) {
         // We substring from the beginning until the position after the last filled
         // placeholder char.
         resultStr = resultStr.substr(0, indexOfLastFilledPlaceholderChar + 1);
+        console.log(resultStr);
       } else {
         // If we couldn't find `indexOfLastFilledPlaceholderChar` that means the user deleted
         // the first character in the mask. So we return an empty string.

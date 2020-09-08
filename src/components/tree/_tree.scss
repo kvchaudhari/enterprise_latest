@@ -22,7 +22,7 @@
     border: 1px solid transparent;
     border-radius: 2px;
     color: $tree-link-color;
-    font-size: $theme-size-font-base;
+    font-size: $ids-size-font-base;
     line-height: 28px;
     padding: 6px 5px 3px;
     text-decoration: none;
@@ -49,6 +49,11 @@
       border-bottom: 1px solid transparent;
       color: $tree-link-color;
       margin: 0 0 0 4px;
+
+      .icon {
+        left: 1px;
+        top: 7px;
+      }
     }
 
     // Icons

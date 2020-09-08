@@ -1,5 +1,6 @@
 // Tabs (Vertical and Horizontal)
 //==================================================/
+
 @mixin tab-outline {
   border: 1px solid transparent;
   border-radius: 2px;
@@ -64,7 +65,7 @@
   }
 
   > .busy-indicator-container {
-    font-size: $theme-size-font-base;
+    font-size: $ids-size-font-base;
   }
 
 }
@@ -220,9 +221,20 @@
   }
 
   > .busy-indicator-container {
-    font-size: $theme-size-font-base;
+    font-size: $ids-size-font-base;
   }
 
+}
+
+// Page containers without scroll
+.page-container {
+  .tab-panel-container {
+    &.no-scroll {
+      .tab-panel {
+        padding-top: 0;
+      }
+    }
+  }
 }
 
 // More Button
@@ -302,7 +314,7 @@
   .tab-more,
   .add-tab-button {
     background-color: transparent;
-    font-size: $theme-size-font-base;
+    font-size: $ids-size-font-base;
     padding: 16px;
     position: relative;
     vertical-align: top;
@@ -464,8 +476,8 @@
         @include antialiased();
 
         color: inherit;
-        font-size: $theme-size-font-base;
-        font-weight: $theme-number-font-weight-base;
+        font-size: $ids-size-font-base;
+        font-weight: $ids-number-font-weight-base;
         text-decoration: none;
 
         > * {
@@ -730,7 +742,7 @@ html[dir='rtl'] {
   }
 
   .tab.is-selected a {
-    font-weight: $theme-number-font-weight-bold;
+    font-weight: $ids-number-font-weight-bold;
   }
 
   + .tab-panel-container {

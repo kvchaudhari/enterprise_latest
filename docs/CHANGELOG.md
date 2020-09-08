@@ -1,6 +1,17 @@
 # What's New with Enterprise
 
+## v4.33.0
+
+### v4.33.0 Fixes
+
+- `[Stepprocess]` Fixed a bug where padding and scrolling was missing. Note that this pattern will eventually be removed and we do not suggest any one use it for new development. ([#4249](https://github.com/infor-design/enterprise/issues/4249))
+- `[Tree]` Fixed a bug that adding icons in with the tree text would encode it when using addNode. ([#4305](https://github.com/infor-design/enterprise/issues/4305))
+
 ## v4.32.0
+
+### v4.32.0 Important Notes
+
+- `[Colors]` In Uplift (Vibrant) theme there is no longer any colors in graphite. All are slate. This involved bringing in a new version 3.0 of the design system with some breaking changes you should not if using the tokens directly. See the [design system change log](https://github.com/infor-design/design-system/blob/master/docs/CHANGELOG.md) for details. ([#4206](https://github.com/infor-design/enterprise/issues/4206))
 
 ### v4.32.0 Features
 
@@ -8,6 +19,7 @@
 - `[Datagrid]` Add a new `RowNumber` formatter that will show a row number column that remains the same no matter how the grid is sorted. ([#1904](https://github.com/infor-design/enterprise/issues/1904))
 - `[Datepicker]` Added the ability to use the range selection in date picker when using the UmAlQura Calendar (RTL). ([#4227](https://github.com/infor-design/enterprise/issues/4227))
 - `[Homepage]` Added ability to support a 5 column option. ([#4101](https://github.com/infor-design/enterprise/issues/4101))
+- `[Locale]` Added an example page to test translation strings more accurately. ([#4189](https://github.com/infor-design/enterprise/issues/4189))
 
 ### v4.32.0 Fixes
 
@@ -15,11 +27,14 @@
 - `[Accordion]` Fixed a bug in the vibrant theme where nested header text was not showing because the width was pushing it to the next line. ([#4145](https://github.com/infor-design/enterprise/issues/4145))
 - `[Application Menu]` Fixed too much spacing level when there's an icon in accordion header in uplift theme. ([#4202](http://localhost:4000/components/applicationmenu/test-six-levels-icons.html?theme=uplift&variant=light&colors=0066D4))
 - `[Contextual Action Panel]` Made the close button work in cases where subcomponents are open inside the CAP. ([#4112](https://github.com/infor-design/enterprise/issues/4112))
+- `[Colorpicker]` The sizes were inconsistent with other components in width so we adjusted them. ([#4310](https://github.com/infor-design/enterprise/issues/4310))
 - `[Datagrid]` Fixed an issue where the selectedRows array contents continued to multiply each time running `selectAllRows`. ([#4195](https://github.com/infor-design/enterprise/issues/4195))
 - `[Datagrid]` Fixed an issue where the dynamic tooltip was not working properly. ([#4260](https://github.com/infor-design/enterprise/issues/4260))
 - `[Datagrid]` Fixed an issue where the check box filter was not working. ([#4271](https://github.com/infor-design/enterprise/issues/4271))
+- `[Datagrid]` Fixed an issue where the filter and paging for treegrid was not working properly. ([#4293](https://github.com/infor-design/enterprise/issues/4293))
 - `[Datepicker]` Fixed an issue where the minute and second interval for timepicker was not working properly when use along useCurrentTime setting. ([#4230](https://github.com/infor-design/enterprise/issues/4230))
 - `[Dropdown]` Fixed a bug where italic-style highlighting would represent a matched filter term instead of bold-style on a Dropdown List item in some cases. ([#4141](https://github.com/infor-design/enterprise/issues/4141))
+- `[Editor]` Fixed issue with incorrect padding when using bullets in RTL mode. ([#4327](https://github.com/infor-design/enterprise/issues/4327))
 - `[FileUploadAdvanced]` Fixed an issue where the method `status.setCompleted()` not firing event `fileremoved`. ([#4294](https://github.com/infor-design/enterprise/issues/4294))
 - `[Homepage]` Fixed an issue where the columns were not showing properly after resize by using the maximize button. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
 - `[Homepage]` Fixed an issue where the columns were not showing properly after resize browser window. ([#895](https://github.com/infor-design/enterprise-ng/issues/895))
@@ -32,9 +47,14 @@
 - `[Splitter]` Fixes an issue where the collapse button was not working when splitter is on the right. ([#1730](https://github.com/infor-design/enterprise-ng/issues/1730))
 - `[Tabs]` Added detection for width/height/style changes on a Tabs component, which now triggers a resize event. ([ng#860](https://github.com/infor-design/enterprise-ng/issues/860))
 - `[Tabs]` Fixed a small error by removing a - 1 involved with testing. ([#4093](https://github.com/infor-design/enterprise/issues/4093))
+- `[Tabs]` Fixed a bug where using `#` in a Tab title was not possible. ([#4179](https://github.com/infor-design/enterprise/issues/4179))
+- `[Tabs Header]` Fixed a bug where the add icon were too small and the page form layout has a big space on top of it. ([#4289](https://github.com/infor-design/enterprise/issues/4289))
+- `[Toolbar Flex]` Fixed a bug where in some cases a un-needed scrollbar would appear. [[#4325](https://github.com/infor-design/enterprise/issues/4325)]
 - `[Toolbar Searchfield]` Fixed a bug where the searchfield doesn't perfectly align together with flex toolbar. [[#4226](https://github.com/infor-design/enterprise/issues/4226)]
 - `[Tree]` Fixed an issue where the return focus state was not working properly after closing the context menu. ([#4252](https://github.com/infor-design/enterprise/issues/4252))
 - `[Vertical Tabs]` Fixed an issue where the error icon was misaligning. ([#873](https://github.com/infor-design/enterprise-ng/issues/873))
+
+(49 Issues Solved This Release, Backlog Enterprise 196, Backlog Ng 51, 1079 Functional Tests, 1525 e2e Tests)
 
 ## v4.31.2
 

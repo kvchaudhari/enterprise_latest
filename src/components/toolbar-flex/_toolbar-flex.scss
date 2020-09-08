@@ -72,13 +72,13 @@
     .page-title,
     .section-title {
       display: block;
-      overflow-x: hidden;
+      overflow: hidden;
       padding: 0;
       text-overflow: ellipsis;
     }
 
     .section-title {
-      font-size: $theme-size-font-sm;
+      font-size: $ids-size-font-sm;
     }
 
     + .toolbar-section.buttonset {

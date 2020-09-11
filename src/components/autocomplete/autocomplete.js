@@ -6,6 +6,7 @@ import { DOM } from '../../utils/dom';
 import { ListFilter } from '../listfilter/listfilter';
 import { Locale } from '../locale/locale';
 import { Tmpl } from '../tmpl/tmpl';
+import { stringUtils } from '../../utils/string';
 import { xssUtils } from '../../utils/xss';
 
 // jQuery Components
@@ -87,7 +88,7 @@ const DEFAULT_AUTOCOMPLETE_HIGHLIGHT_CALLBACK = function highlightMatch(item, op
 
   // Easy match for 'contains'-style filterMode.
   if (options.filterMode === 'contains') {
-    targetProp = targetProp.replace(new RegExp('(' + options.term + ')', 'ig'), '<i>$1</i>');
+    targetProp = targetProp.replace(new RegExp('(' + stringUtils.escapeRegExp(options.term) + ')', 'ig'), '<i>$1</i>');
   } else if (options.filterMode === 'keyword') {
     // Handle "keyword" filterMode
     const keywords = options.term.split(' ');
@@ -95,7 +96,7 @@ const DEFAULT_AUTOCOMPLETE_HIGHLIGHT_CALLBACK = function highlightMatch(item, op
       const keyword = keywords[i];
 
       if (keyword) {
-        targetProp = targetProp.replace(new RegExp('(' + keyword + ')', 'ig'), '<i>$1</i>');
+        targetProp = targetProp.replace(new RegExp('(' + stringUtils.escapeRegExp(keyword) + ')', 'ig'), '<i>$1</i>');
       }
     }
   } else {
@@ -105,12 +106,13 @@ const DEFAULT_AUTOCOMPLETE_HIGHLIGHT_CALLBACK = function highlightMatch(item, op
     if (!options.caseSensitive) {
       testContent = Locale.toLowerCase(testContent);
     }
-    const pos = testContent.indexOf(options.term);
+    const safeTerm = stringUtils.escapeRegExp(options.term);
+    const pos = testContent.indexOf(safeTerm);
 
     if (pos > 0) {
-      targetProp = originalItem.substr(0, pos) + '<i>' + originalItem.substr(pos, options.term.length) + '</i>' + originalItem.substr(options.term.length + pos);
+      targetProp = originalItem.substr(0, pos) + '<i>' + originalItem.substr(pos, safeTerm.length) + '</i>' + originalItem.substr(safeTerm.length + pos);
     } else if (pos === 0) {
-      targetProp = '<i>' + originalItem.substr(0, options.term.length) + '</i>' + originalItem.substr(options.term.length);
+      targetProp = '<i>' + originalItem.substr(0, safeTerm.length) + '</i>' + originalItem.substr(safeTerm.length);
     }
   }
 
@@ -461,6 +463,7 @@ Autocomplete.prototype = {
     // Remove events
     this.list.off([
       `click.${COMPONENT_NAME}`,
+      `keydown.${COMPONENT_NAME}`,
       `touchend.${COMPONENT_NAME}`,
       `focusout.${COMPONENT_NAME}`
     ].join(' '));
@@ -904,6 +907,12 @@ Autocomplete.prototype = {
     if (this.element.offset().left > this.list.offset().left) {
       this.list.width(this.list.width() + 1);
     }
+
+    // Allow keyboard handling when focus is inside the Autocomplete list.
+    // See https://github.com/infor-design/enterprise-ng/issues/901
+    this.list.on(`keydown.${COMPONENT_NAME}`, (e) => {
+      this.handleAutocompleteKeydown(e);
+    });
 
     return this;
   },

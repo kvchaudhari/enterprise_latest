@@ -566,7 +566,8 @@ Tabs.prototype = {
     if (modal.length) {
       modal.on('afteropen.tabs', () => {
         if (self.hasAnimatedBar()) {
-          self.focusBar();
+          const selected = $('.tab.is-selected');
+          self.focusBar(selected);
         }
       });
     }
@@ -2434,7 +2435,7 @@ Tabs.prototype = {
     const targetPanel = this.getPanel(tabId);
     const hasTargetPanel = (targetPanel && targetPanel.length);
     const targetLiIndex = this.tablist.children('li').index(targetLi);
-    const notATab = '.application-menu-trigger, .separator, .is-disabled, :hidden';
+    const notATab = '.application-menu-trigger, .separator, .is-disabled';
     let prevLi = targetLi.prev();
 
     if (!disableBeforeClose) {
@@ -2543,7 +2544,7 @@ Tabs.prototype = {
     }
 
     // If we find nothing, search for ANY available tab
-    if (!prevLi.length) {
+    if (!prevLi || !prevLi.length) {
       prevLi = this.tablist.children('li').not(notATab).first();
     }
 

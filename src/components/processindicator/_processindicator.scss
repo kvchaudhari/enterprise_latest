@@ -54,7 +54,24 @@ $indicator-current-size: ($indicator-size * 1.6);
       &.minor {
         width: ($indicator-size / 2);
       }
+    }
+  }
 
+  // Responsive uses Flexbox
+  &.responsive {
+    .display {
+      align-items: center;
+      display: flex;
+      word-spacing: auto;
+
+      .separator {
+        flex-grow: 1;
+        width: auto;
+
+        &.minor {
+          flex-grow: 0.5;
+        }
+      }
     }
   }
 

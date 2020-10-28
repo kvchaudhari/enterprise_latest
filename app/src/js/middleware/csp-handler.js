@@ -64,6 +64,9 @@ module.exports = function () {
             'ws://localhost:35729',
             'ws://10.0.2.2:35729'
           ],
+          'frame-src': [
+            'https://www.bing.com'
+          ],
           'object-src': ['none'],
           // Ultimately we want this (see SECURITY.MD)
           // 'style-src': [
